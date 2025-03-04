@@ -11,5 +11,5 @@ See `REQUIREMENTS.md` for in depth details
 
 ## Get Started
 ```bash
-curl -o- https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/run.sh | bash
+time curl -o- https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/run.sh | bash
 ```
