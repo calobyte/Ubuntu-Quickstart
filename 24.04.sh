@@ -38,7 +38,17 @@ code --install-extension GitHub.github-vscode-theme
 # vs code user settings
 wget wget https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/vscode_settings.json -O $HOME/.config/Code/User/settings.json
 
-# update app menu folders (add_gnome_menu_folders is from Nubuntu)
+# update app menu folders
+  add_gnome_menu_folders() {
+    folder_name=$1
+    readable_name=$2
+    apps=$3
+
+    gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/$folder_name/ name "$readable_name"
+    gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/$folder_name/ apps "[ $apps ]"
+
+  }
+
 add_gnome_menu_folders "office" "✍ Office" "'libreoffice-impress.desktop', 'libreoffice-draw.desktop', 'libreoffice-calc.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop', 'com.github.xournalpp.xournalpp.desktop', 'gitlab.adhami3310.Converter'"
 add_gnome_menu_folders "create" "🎨 Create" "'gimp.desktop', 'com.obsproject.Studio.desktop', 'org.kde.kdenlive.desktop', 'page.kramo.Sly.desktop', 'gitlab.adhami3310.Converter'"
 add_gnome_menu_folders "remote" "🛜 Remote" "'org.remmina.Remmina.desktop', 'org.localsend.localsend_app.desktop'"
