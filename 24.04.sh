@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.0.4
+VERSION=0.0.5
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -15,7 +15,7 @@ ssh-keygen -f $HOME/.ssh/id_rsa -N ""
 # Run Nubuntu
 curl -o- https://raw.githubusercontent.com/calobyte/Nubuntu/refs/heads/main/24.04.sh | bash -s -- \
     --debs "vscode,chrome,docker,dbeaver" \
-    --flatpaks "com.bitwarden.desktop,org.localsend.localsend_app,com.usebruno.Bruno,com.ultimaker.cura,com.obsproject.Studio,com.github.xournalpp.xournalpp" \
+    --flatpaks "com.bitwarden.desktop,org.localsend.localsend_app,com.usebruno.Bruno,com.ultimaker.cura,com.obsproject.Studio,com.github.xournalpp.xournalpp,org.kde.kdenlive" \
     --debloat "yes" \
     --neaten "yes" \
     --apt_install "htop,aria2,tilix,libreoffice-writer,libreoffice-calc,libreoffice-impress,libreoffice-draw,remmina,gimp,virtualbox,vlc" \
@@ -40,7 +40,7 @@ wget wget https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/
 
 # update app menu folders (add_gnome_menu_folders is from Nubuntu)
 add_gnome_menu_folders "office" "✍ Office" "'libreoffice-impress.desktop', 'libreoffice-draw.desktop', 'libreoffice-calc.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop', 'com.github.xournalpp.xournalpp.desktop'"
-add_gnome_menu_folders "create" "🎨 Create" "'gimp.desktop', 'com.obsproject.Studio.desktop'"
+add_gnome_menu_folders "create" "🎨 Create" "'gimp.desktop', 'com.obsproject.Studio.desktop', 'org.kde.kdenlive.desktop'"
 add_gnome_menu_folders "remote" "🛜 Remote" "'org.remmina.Remmina.desktop', 'org.localsend.localsend_app.desktop'"
 add_gnome_menu_folders "media" "⏯️ Media" "'vlc.desktop'"
 
@@ -52,3 +52,6 @@ sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 echo "if [ \$TILIX_ID ] || [ \$VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi" >> $HOME/.bashrc
+
+# install ollama
+curl -fsSL https://ollama.com/install.sh | sh

@@ -13,7 +13,7 @@ I want to automate the whole bang-shoot, I have already created [Nubuntu](https:
     - [x] Error lens
     - [x] prettier
 - [x] A SSH key pair
-- [ ] Some additional applications
+- [x] Some additional applications
     - [x] VirtualBox
     - [x] Tilix (a better terminal)
          [x] Fix error on launch
@@ -23,8 +23,8 @@ I want to automate the whole bang-shoot, I have already created [Nubuntu](https:
     - [x] Basic office suite (Probably libre office)
     - [x] OBS
     - [x] GIMP
-    - [ ] Video editor (kdenlive? or better maybe resolve)
-    - [ ] Ollama (sigh...)
+    - [x] Video editor (kdenlive? or better maybe resolve) (settled for kdenlive)
+    - [x] Ollama (sigh...)
     - [x] Cura for 3D slicing
     - [x] Remove desktop software (remmina)
     - [x] Media player (vlc)
