@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.0.1
+VERSION=0.0.2
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -19,7 +19,7 @@ curl -o- https://raw.githubusercontent.com/calobyte/Nubuntu/refs/heads/main/24.0
     --debloat "yes" \
     --neaten "yes" \
     --apt_install "htop,aria2,tilix,libreoffice-writer,libreoffice-calc,libreoffice-impress,libreoffice-draw,remmina,gimp,virtualbox" \
-    --apt-remove "gnome-terminal"
+    --apt-remove "gnome-terminal" \
     --theme "dark"
 
 # Run Lavavel-Localenv
