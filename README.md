@@ -1,2 +1,15 @@
-# jump-start
-1 = entire system setup and ready to go
+## Jump start
+Callum's **Just add water** script that install everything he needs to be _productive!_
+
+- Runs [Nubuntu](https://github.com/calobyte/nubuntu) and 
+- Runs [Laravel-Localenv](https://github.com/calobyte/laravel-localenv)
+- Install Applications
+- Installs extensions and settings to VS Code
+- Organize apps into folders in gnome menu (eventually)
+
+See `REQUIREMENTS.md` for in depth details
+
+## Get Started
+```bash
+curl -o- https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/run.sh | bash
+```
