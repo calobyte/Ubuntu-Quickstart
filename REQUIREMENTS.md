@@ -16,17 +16,17 @@ I want to automate the whole bang-shoot, I have already created [Nubuntu](https:
 - [ ] Some additional applications
     - [x] VirtualBox
     - [x] Tilix (a better terminal)
-         [ ] Fix error on launch
+         [x] Fix error on launch
     - [x] Localsend
     - [x] Bruno (REST Client)
-    - [ ] Something to sign PDF's with
+    - [x] Something to sign PDF's with (found xournalapp)
     - [x] Basic office suite (Probably libre office)
     - [x] OBS
     - [x] GIMP
-    - [ ] Some sort of vector graphics editor (inkscape?)
     - [ ] Video editor (kdenlive? or better maybe resolve)
     - [ ] Ollama (sigh...)
     - [x] Cura for 3D slicing
     - [x] Remove desktop software (remmina)
+    - [x] Media player (vlc)
 
 There are quite a few applications on this list, and I probably have not exhausted the requirements, however I think this is a great start!

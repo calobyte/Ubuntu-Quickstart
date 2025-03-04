@@ -3,6 +3,10 @@
     "workbench.colorTheme": "GitHub Dark Default",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "editor.fontFamily": "Jetbrains Mono"
+    "editor.fontFamily": "Jetbrains Mono",
+    "[php]": {
+        "editor.linkedEditing": true,
+        "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+      }
 }
   
