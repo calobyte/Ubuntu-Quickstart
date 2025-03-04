@@ -9,7 +9,7 @@ Callum's **Just add water** script that install everything he needs to be _produ
 
 See `REQUIREMENTS.md` for in depth details
 
-## Get Started
+## Get Started for Ubuntu 24.04
 ```bash
-time curl -o- https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/run.sh | bash
+time curl -o- https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/24.04.sh | bash
 ```

@@ -16,6 +16,7 @@ I want to automate the whole bang-shoot, I have already created [Nubuntu](https:
 - [ ] Some additional applications
     - [x] VirtualBox
     - [x] Tilix (a better terminal)
+         [ ] Fix error on launch
     - [x] Localsend
     - [x] Bruno (REST Client)
     - [ ] Something to sign PDF's with
