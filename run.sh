@@ -15,7 +15,7 @@ ssh-keygen -f $HOME/.ssh/id_rsa -N ""
 # Run Nubuntu
 curl -o- https://raw.githubusercontent.com/calobyte/Nubuntu/refs/heads/main/24.04.sh | bash -s -- \
     --debs "vscode,chrome,docker,dbeaver" \
-    --flatpaks "com.bitwarden.desktop,org.localsend.localsend_app,flathub com.usebruno.Bruno,com.ultimaker.cura,com.obsproject.Studio" \
+    --flatpaks "com.bitwarden.desktop,org.localsend.localsend_app,com.usebruno.Bruno,com.ultimaker.cura,com.obsproject.Studio" \
     --debloat "yes" \
     --neaten "yes" \
     --apt_install "htop,aria2,tilix,libreoffice-writer,libreoffice-calc,libreoffice-impress,libreoffice-draw,remmina,gimp,virtualbox" \
