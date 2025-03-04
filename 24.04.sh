@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.0.7
+VERSION=0.0.8
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
