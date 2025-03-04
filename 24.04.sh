@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.0.8
+VERSION=0.0.9
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -55,7 +55,7 @@ add_gnome_menu_folders "remote" "🛜 Remote" "'org.remmina.Remmina.desktop', 'o
 add_gnome_menu_folders "media" "⏯️ Media" "'vlc.desktop'"
 
 # update dev folder
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "['code.desktop', 'dbeaver-ce.desktop', 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "['code.desktop', 'dbeaver-ce.desktop', 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop', 'com.gexperts.Tilix.desktop']"
 
 # update menu folders
 gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'office', 'create', 'remote', 'media' ]"
