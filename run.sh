@@ -7,7 +7,7 @@ echo "Jump Start (v$VERSION)"
 echo "*******************************"
 
 # basic update and upgrade and make sure curl is installed
-sudo apt update && sudo apt upgrade -yq && sudo apt install -yq curl
+sudo apt update && sudo apt upgrade -yq
 
 # generate new ssh key
 ssh-keygen -f $HOME/.ssh/id_rsa -N ""
