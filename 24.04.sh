@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.1.11
+VERSION=0.1.12
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -76,7 +76,6 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 # dock
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
