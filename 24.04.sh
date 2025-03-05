@@ -32,8 +32,8 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension eamodio.gitlens
 
 # theme stuff
-code --install-extension tal7aouy.icons
-code --install-extension GitHub.github-vscode-theme
+code --install-extension Catppuccin.catppuccin-vsc
+code --install-extension Catppuccin.catppuccin-vsc-icons
 
 # vs code user settings
 wget wget https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/vscode_settings.json -O $HOME/.config/Code/User/settings.json
