@@ -55,12 +55,12 @@ add_gnome_menu_folders "remote" "🛜 Remote" "'org.remmina.Remmina.desktop', 'o
 add_gnome_menu_folders "media" "⏯️ Media" "'vlc.desktop'"
 
 # update dev folder
-dev="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps)"
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "[${dev:1:-1} , 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop']"
+dev_folder="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps)"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "[${dev_folder:1:-1} , 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop']"
 
 # update settings folder
-settings="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/settings/ apps)"
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "${settings:1:-1}, 'com.gexperts.Tilix.desktop'"
+system_folder="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/system/ apps)"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/system/ apps "[${system_folder:1:-1}, 'com.gexperts.Tilix.desktop']"
 
 # update menu folders
 gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'office', 'create', 'remote', 'media' ]"
