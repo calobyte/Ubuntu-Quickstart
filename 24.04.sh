@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.1.15
+VERSION=0.2.15
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -85,4 +85,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+
+# hide desktop icons
+gsettings set org.gnome.desktop.background show-desktop-icons true
 
