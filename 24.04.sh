@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.1.13
+VERSION=0.1.14
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -54,13 +54,13 @@ add_gnome_menu_folders "create" "🎨 Create" "'gimp.desktop', 'com.obsproject.S
 add_gnome_menu_folders "remote" "🛜 Remote" "'org.remmina.Remmina.desktop', 'org.localsend.localsend_app.desktop'"
 add_gnome_menu_folders "media" "⏯️ Media" "'vlc.desktop'"
 
-# update dev folder
-dev_folder="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps)"
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "[${dev_folder:1:-1} , 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop']"
+# # update dev folder
+# dev_folder="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps)"
+# gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "[${dev_folder:1:-1} , 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop']"
 
-# update system folder
-system_folder="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/system/ apps)"
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/system/ apps "[${system_folder:1:-1}, 'com.gexperts.Tilix.desktop']"
+# # update system folder
+# system_folder="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/system/ apps)"
+# gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/system/ apps "[${system_folder:1:-1}, 'com.gexperts.Tilix.desktop']"
 
 # update menu folders
 gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'office', 'create', 'remote', 'media' ]"
