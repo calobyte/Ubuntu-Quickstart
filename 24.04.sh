@@ -89,3 +89,5 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 # no notifications on lock screen
 gsettings set org.gnome.desktop.notifications show-in-lock-screen true
 
+# fix for onlyoffice
+sudo apt-get install -yq --reinstall libcanberra-gtk-module
