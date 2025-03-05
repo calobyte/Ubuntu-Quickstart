@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.1.12
+VERSION=0.1.13
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -49,8 +49,8 @@ add_gnome_menu_folders() {
 
 }
 
-add_gnome_menu_folders "office" "✍ Office" "'libreoffice-impress.desktop', 'libreoffice-draw.desktop', 'libreoffice-calc.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop', 'com.github.xournalpp.xournalpp.desktop', 'gitlab.adhami3310.Converter'"
-add_gnome_menu_folders "create" "🎨 Create" "'gimp.desktop', 'com.obsproject.Studio.desktop', 'org.kde.kdenlive.desktop', 'page.kramo.Sly.desktop', 'gitlab.adhami3310.Converter'"
+add_gnome_menu_folders "office" "✍ Office" "'libreoffice-impress.desktop', 'libreoffice-draw.desktop', 'libreoffice-calc.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop', 'com.github.xournalpp.xournalpp.desktop'"
+add_gnome_menu_folders "create" "🎨 Create" "'gimp.desktop', 'com.obsproject.Studio.desktop', 'org.kde.kdenlive.desktop', 'page.kramo.Sly.desktop', 'gitlab.adhami3310.Converter.desktop'"
 add_gnome_menu_folders "remote" "🛜 Remote" "'org.remmina.Remmina.desktop', 'org.localsend.localsend_app.desktop'"
 add_gnome_menu_folders "media" "⏯️ Media" "'vlc.desktop'"
 
@@ -58,7 +58,7 @@ add_gnome_menu_folders "media" "⏯️ Media" "'vlc.desktop'"
 dev_folder="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps)"
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "[${dev_folder:1:-1} , 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop']"
 
-# update settings folder
+# update system folder
 system_folder="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/system/ apps)"
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/system/ apps "[${system_folder:1:-1}, 'com.gexperts.Tilix.desktop']"
 
@@ -75,10 +75,10 @@ fi" >> $HOME/.bashrc
 curl -fsSL https://ollama.com/install.sh | sh
 
 # dock
-gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
-gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+# gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+# gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
+# gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+# gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
+# gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
+# gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
