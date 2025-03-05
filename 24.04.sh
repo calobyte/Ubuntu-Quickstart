@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.3.15
+VERSION=0.4.15
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -15,10 +15,10 @@ ssh-keygen -f $HOME/.ssh/id_rsa -N ""
 # Run Nubuntu
 curl -o- https://raw.githubusercontent.com/calobyte/Nubuntu/refs/heads/main/24.04.sh | bash -s -- \
     --debs "vscode,chrome,docker,dbeaver" \
-    --flatpaks "com.bitwarden.desktop,org.localsend.localsend_app,com.usebruno.Bruno,com.ultimaker.cura,com.obsproject.Studio,com.github.xournalpp.xournalpp,org.kde.kdenlive,page.kramo.Sly" \
+    --flatpaks "com.bitwarden.desktop,org.localsend.localsend_app,com.usebruno.Bruno,com.ultimaker.cura,com.obsproject.Studio,com.github.xournalpp.xournalpp,org.kde.kdenlive,page.kramo.Sly,org.onlyoffice.desktopeditors" \
     --debloat "yes" \
     --neaten "yes" \
-    --apt_install "htop,aria2,tilix,libreoffice-writer,libreoffice-calc,libreoffice-impress,libreoffice-draw,remmina,gimp,virtualbox,vlc" \
+    --apt_install "htop,aria2,tilix,remmina,gimp,virtualbox,vlc" \
     --apt_remove "gnome-terminal" \
     --theme "dark"
 
@@ -51,7 +51,7 @@ add_gnome_menu_folders() {
 
 gsettings set org.gnome.desktop.app-folders folder-children "[]"
 
-add_gnome_menu_folders "office" "✍ Office" "'libreoffice-impress.desktop', 'libreoffice-draw.desktop', 'libreoffice-calc.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop', 'com.github.xournalpp.xournalpp.desktop'"
+add_gnome_menu_folders "office" "✍ Office" "'org.onlyoffice.desktopeditors.desktop', 'com.github.xournalpp.xournalpp.desktop'"
 add_gnome_menu_folders "create" "🎨 Create" "'gimp.desktop', 'com.obsproject.Studio.desktop', 'org.kde.kdenlive.desktop', 'page.kramo.Sly.desktop', 'gitlab.adhami3310.Converter.desktop'"
 add_gnome_menu_folders "remote" "🛜 Remote" "'org.remmina.Remmina.desktop', 'org.localsend.localsend_app.desktop'"
 add_gnome_menu_folders "media" "⏯️ Media" "'vlc.desktop'"
@@ -85,9 +85,6 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
-
-# hide desktop icons
-gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # no notifications on lock screen
 gsettings set org.gnome.desktop.notifications show-in-lock-screen true
