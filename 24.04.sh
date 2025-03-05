@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.2.15
+VERSION=0.3.15
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -87,5 +87,8 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
 # hide desktop icons
-gsettings set org.gnome.desktop.background show-desktop-icons true
+gsettings set org.gnome.desktop.background show-desktop-icons false
+
+# no notifications on lock screen
+gsettings set org.gnome.desktop.notifications show-in-lock-screen true
 
