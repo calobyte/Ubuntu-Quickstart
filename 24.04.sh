@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.0.9
+VERSION=0.1.9
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -55,7 +55,12 @@ add_gnome_menu_folders "remote" "🛜 Remote" "'org.remmina.Remmina.desktop', 'o
 add_gnome_menu_folders "media" "⏯️ Media" "'vlc.desktop'"
 
 # update dev folder
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "['code.desktop', 'dbeaver-ce.desktop', 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop', 'com.gexperts.Tilix.desktop']"
+dev="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps)"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "[${dev:1:-1} , 'virtualbox.desktop', 'com.ultimaker.cura.desktop', 'com.usebruno.Bruno.desktop']"
+
+# update settings folder
+settings="$(gsettings get org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/settings/ apps)"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/dev/ apps "${settings:1:-1}, 'com.gexperts.Tilix.desktop'"
 
 # update menu folders
 gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'office', 'create', 'remote', 'media' ]"
@@ -68,3 +73,14 @@ fi" >> $HOME/.bashrc
 
 # install ollama
 curl -fsSL https://ollama.com/install.sh | sh
+
+# dock
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen true
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+
