@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=0.4.16
+VERSION=0.4.17
 
 echo "*******************************"
 echo "Jump Start (v$VERSION)"
@@ -8,6 +8,8 @@ echo "*******************************"
 
 # basic update and upgrade and make sure curl is installed
 sudo apt update && sudo apt upgrade -yq
+
+sudo dpkg --add-architecture i386
 
 # generate new ssh key
 ssh-keygen -f $HOME/.ssh/id_rsa -N ""
