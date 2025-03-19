@@ -13,5 +13,5 @@ See `REQUIREMENTS.md` for in depth details
 ## Get Started for Ubuntu 24.04
 
 ```bash
-time curl -o- https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/24.04.sh | bash
+time curl -o- https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/fedora/41.sh | bash
 ```
