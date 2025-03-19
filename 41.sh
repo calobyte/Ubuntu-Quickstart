@@ -7,20 +7,18 @@ echo "Jump Start (v$VERSION)"
 echo "*******************************"
 
 # basic update and upgrade and make sure curl is installed
-sudo apt update && sudo apt upgrade -yq
-
-sudo dpkg --add-architecture i386
+sudo dnf update -yq
 
 # generate new ssh key
 ssh-keygen -f $HOME/.ssh/id_rsa -N ""
 
 # Run Nubuntu
-curl -o- https://raw.githubusercontent.com/calobyte/Nubuntu/refs/heads/main/24.04.sh | bash -s -- \
+curl -o- https://raw.githubusercontent.com/calobyte/Nubuntu/refs/heads/fedora/41.sh | bash -s -- \
     --debs "vscode,chrome,docker,dbeaver" \
     --flatpaks "com.bitwarden.desktop,org.localsend.localsend_app,com.usebruno.Bruno,com.ultimaker.cura,com.obsproject.Studio,com.github.xournalpp.xournalpp,org.kde.kdenlive,page.kramo.Sly,org.onlyoffice.desktopeditors" \
     --debloat "yes" \
     --neaten "yes" \
-    --apt_install "htop,aria2,tilix,remmina,gimp,virtualbox,vlc" \
+    --dnf_install "htop,aria2,tilix,remmina,gimp,virtualbox,vlc" \
     --apt_remove "gnome-terminal" \
     --theme "dark"
 
@@ -92,4 +90,4 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.desktop.notifications show-in-lock-screen true
 
 # fix for onlyoffice
-sudo apt-get install -yq --reinstall libcanberra-gtk-module
+# sudo apt-get install -yq --reinstall libcanberra-gtk-module
