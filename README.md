@@ -17,5 +17,5 @@ time curl -o- https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/
 ```
 
 ```bash
-time curl -o- https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/25.04.sh | bash
+time sudo apt-get install -yq curl && curl -o- https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/25.04.sh | bash
 ```
