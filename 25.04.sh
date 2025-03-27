@@ -2,9 +2,9 @@
 
 DOWNLOAD_PATH=$HOME/Downloads/tmp
 
-snap_installs="bruno cura-slicer kdenlive onlyoffice-desktopeditors gimp bitwarden dbeaver-ce obs-studio localsend xournalpp"
+snap_installs="bruno cura-slicer kdenlive onlyoffice-desktopeditors gimp bitwarden dbeaver-ce obs-studio localsend xournalpp darktable"
 snap_removes="firefox"
-apt_installs="htop aria2 tilix vlc git"
+apt_installs="htop aria2 tilix vlc git gnome-software-plugin-snap remmina"
 apt_removes="gnome-user-docs yelp gnome-terminal"
 
 mkdir $DOWNLOAD_PATH
@@ -49,36 +49,34 @@ sudo apt-get update
 sudo apt-get -yq install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $USER
 
-
 # dock pinned apps
-gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop', 'bitwarden_bitwarden.desktop', 'org.gnome.Nautilus.desktop' ]"
+gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop', 'bitwarden_bitwarden.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.remmina.Remmina.desktop' ]"
 
 # menu folders
 add_gnome_menu_folders() {
-folder_name=$1
-readable_name=$2
-apps=$3
+        folder_name=$1
+        readable_name=$2
+        apps=$3
 
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/$folder_name/ name "$readable_name"
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/$folder_name/ apps "[ $apps ]"
-
+        gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/$folder_name/ name "$readable_name"
+        gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/$folder_name/ apps "[ $apps ]"
 }
 
 add_gnome_menu_folders "system" "🖥️ System" "'org.gnome.Logs.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Tecla.desktop', 'org.gnome.baobab.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Settings.desktop', 'org.gnome.OnlineAccounts.OAuth2.desktop', 'software-properties-drivers', 'software-properties-gtk', 'update-manager', 'nm-connection-editor', 'gnome-session-properties', 'gnome-language-selector', 'gnome-session-properties.desktop', 'nm-connection-editor.desktop', 'gnome-language-selector.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'software-properties-drivers.desktop', 'htop.desktop', 'desktop-security-center_desktop-security-center.desktop', 'firmware-updater_firmware-updater.desktop', 'org.gnome.Sysprof.desktop'"
 
-add_gnome_menu_folders "accessories" "🗂️ Accessories" "'org.gnome.clocks.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.eog.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Evince', 'org.gnome.Evince.desktop', 'org.gnome.Software.desktop', 'org.gnome.Papers.desktop'"
+add_gnome_menu_folders "accessories" "🗂️ Accessories" "'org.gnome.clocks.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.eog.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Evince', 'org.gnome.Evince.desktop', 'org.gnome.Papers.desktop'"
 
 add_gnome_menu_folders "dev" "💡 Dev" "'code.desktop', 'dbeaver-ce_dbeaver-ce.desktop', 'bruno_bruno.desktop'"
 
-add_gnome_menu_folders "utils" "📏 Utils" "'localsend_localsend.desktop', 'com.gexperts.Tilix.desktop', 'org.gnome.Characters.desktop', 'org.gnome.font-viewer.desktop'"
+add_gnome_menu_folders "utils" "📏 Utils" "'localsend_localsend.desktop', 'com.gexperts.Tilix.desktop', 'org.gnome.Characters.desktop', 'org.gnome.font-viewer.desktop', 'snap-store_snap-store.desktop'"
 
 add_gnome_menu_folders "media" "💽 Media" "'vlc.desktop'"
 
-add_gnome_menu_folders "create" "⚒️ Create" "'cura-slicer_cura.desktop', 'obs-studio_obs-studio.desktop', 'gimp_gimp.desktop', 'kdenlive_kdenlive.desktop'"
+add_gnome_menu_folders "create" "⚒️ Create" "'cura-slicer_cura.desktop', 'obs-studio_obs-studio.desktop', 'gimp_gimp.desktop', 'kdenlive_kdenlive.desktop', 'darktable_darktable.desktop'"
 
 add_gnome_menu_folders "office" "💼 Office" "'onlyoffice-desktopeditors_onlyoffice-desktopeditors.desktop', 'xournalpp_xournalpp.desktop'"
 
-gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'utils', 'media', 'office' ]"
+gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'utils', 'media', 'office', 'create' ]"
 
 # theme and shell
 mkdir -p $HOME/Pictures/Wallpapers
@@ -91,8 +89,10 @@ sudo tar -xf $DOWNLOAD_PATH/jetbrains-fonts.tar -C /usr/share/fonts/truetype/ --
 fc-cache -f
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-blue-dark'
-gsettings set org.gnome.desktop.interface icon-theme 'Yaru-blue'
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-yellow-dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Yaru-yellow-dark'
+gsettings set org.gnome.desktop.interface accent-color 'yellow'
+gsettings set org.gnome.Papers.Default annot-color 'yellow'
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.desktop.interface monospace-font-name 'Jetbrains Mono 13'
