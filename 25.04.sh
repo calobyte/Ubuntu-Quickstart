@@ -4,7 +4,7 @@ DOWNLOAD_PATH=$HOME/Downloads/tmp
 
 snap_installs="bruno cura-slicer kdenlive onlyoffice-desktopeditors gimp bitwarden dbeaver-ce obs-studio localsend xournalpp"
 snap_removes="firefox"
-apt_installs="htop aria2 tilix vlc"
+apt_installs="htop aria2 tilix vlc git"
 apt_removes="gnome-user-docs yelp gnome-terminal"
 
 mkdir $DOWNLOAD_PATH
@@ -13,7 +13,7 @@ sudo apt-get update
 sudo apt-get upgrade -yq
 
 sudo apt-get install -yq $apt_installs
-sudo apt-get install -yq $apt_removes
+sudo apt-get remove -yq $apt_removes
 
 sudo snap remove $snap_removes
 sudo snap install $snap_installs
@@ -78,7 +78,7 @@ mkdir -p $HOME/Pictures/Wallpapers
 wget https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/wallpapers/wallpaper_1.jpg -O $HOME/Pictures/Wallpapers/wallpaper.jpg
 gsettings set org.gnome.desktop.background picture-uri-dark file://$HOME/Pictures/Wallpapers/wallpaper.jpg
 
-wget https://raw.githubusercontent.com/calobyte/nubuntu/refs/heads/main/fonts/jetbrains-fonts.tar -O $DOWNLOAD_PATH/jetbrains-fonts.tar
+wget https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/fonts/jetbrains-fonts.tar -O $DOWNLOAD_PATH/jetbrains-fonts.tar
 sudo tar -xf $DOWNLOAD_PATH/jetbrains-fonts.tar -C /usr/share/fonts/truetype/ --wildcards "*.ttf"
 fc-cache -f
 
@@ -109,7 +109,7 @@ code --install-extension Catppuccin.catppuccin-vsc
 code --install-extension Catppuccin.catppuccin-vsc-icons
 
 # vs code user settings
-wget wget https://raw.githubusercontent.com/calobyte/jump-start/refs/heads/main/vscode_settings.json -O $HOME/.config/Code/User/settings.json
+wget wget https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/vscode_settings.json -O $HOME/.config/Code/User/settings.json
 
 # tilix fix
 sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
@@ -118,7 +118,7 @@ echo "if [ \$TILIX_ID ] || [ \$VTE_VERSION ]; then
 fi" >> $HOME/.bashrc
 
 # install ollama
-curl -fsSL https://ollama.com/install.sh | sh
+# curl -fsSL https://ollama.com/install.sh | sh
 
 # dock
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
