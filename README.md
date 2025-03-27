@@ -15,3 +15,7 @@ See `REQUIREMENTS.md` for in depth details
 ```bash
 time curl -o- https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/24.04.sh | bash
 ```
+
+```bash
+time curl -o- https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/25.04.sh | bash
+```
