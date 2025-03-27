@@ -9,11 +9,11 @@ apt_removes="gnome-user-docs yelp gnome-terminal"
 
 mkdir $DOWNLOAD_PATH
 
-sudo apt update
-sudo apt upgrade -yq
+sudo apt-get update
+sudo apt-get upgrade -yq
 
-sudo apt install -yq $apt_installs
-sudo apt install -yq $apt_removes
+sudo apt-get install -yq $apt_installs
+sudo apt-get install -yq $apt_removes
 
 sudo snap remove $snap_removes
 sudo snap install $snap_installs
@@ -25,13 +25,13 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > pa
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 rm -f packages.microsoft.gpg
-sudo apt install -yq apt-transport-https
-sudo apt update
-sudo apt install -yq code
+sudo apt-get install -yq apt-transport-https
+sudo apt-get update
+sudo apt-get install -yq code
 
 # INSTALL: Chrome
 wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O $DOWNLOAD_PATH/chrome.deb
-sudo apt install -yq $DOWNLOAD_PATH/chrome.deb
+sudo apt-get install -yq $DOWNLOAD_PATH/chrome.deb
 
 
 # INSTALL: docker
@@ -89,7 +89,7 @@ gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.desktop.interface monospace-font-name 'Jetbrains Mono 13'
 
-sudo apt autoremove -yq
+sudo apt-get autoremove -yq
 rm -rf $DOWNLOAD_PATH
 
 # generate new ssh key
