@@ -80,8 +80,8 @@ gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 's
 
 # theme and shell
 mkdir -p $HOME/Pictures/Wallpapers
-# wallpaper credit : https://wallhaven.cc/w/g82vvq
-wget https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/wallpapers/wallpaper_1.jpg -O $HOME/Pictures/Wallpapers/wallpaper.jpg
+
+wget https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/wallpapers/wallpaper_2.jpg -O $HOME/Pictures/Wallpapers/wallpaper.jpg
 gsettings set org.gnome.desktop.background picture-uri-dark file://$HOME/Pictures/Wallpapers/wallpaper.jpg
 
 wget https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/fonts/jetbrains-fonts.tar -O $DOWNLOAD_PATH/jetbrains-fonts.tar
@@ -113,7 +113,7 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension eamodio.gitlens
 
 # vs code theme stuff
-code --install-extension Catppuccin.catppuccin-vsc
+code --install-extension GitHub.github-vscode-theme
 code --install-extension Catppuccin.catppuccin-vsc-icons
 
 # vs code user settings

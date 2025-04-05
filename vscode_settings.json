@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "catppuccin-macchiato",
-  "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.colorTheme": "GitHub Dark Default",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.fontFamily": "Jetbrains Mono",
