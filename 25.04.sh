@@ -129,9 +129,9 @@ fi" >> $HOME/.bashrc
 # curl -fsSL https://ollama.com/install.sh | sh
 
 # dock
-gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+# gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+# gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
+# gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
