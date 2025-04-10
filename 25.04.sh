@@ -81,18 +81,18 @@ gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 's
 # theme and shell
 mkdir -p $HOME/Pictures/Wallpapers
 
-wget https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/wallpapers/wallpaper_2.jpg -O $HOME/Pictures/Wallpapers/wallpaper.jpg
-gsettings set org.gnome.desktop.background picture-uri-dark file://$HOME/Pictures/Wallpapers/wallpaper.jpg
+wget https://images.pexels.com/photos/325044/pexels-photo-325044.jpeg -O $HOME/Pictures/Wallpapers/wallpaper.jpeg
+gsettings set org.gnome.desktop.background picture-uri-dark file://$HOME/Pictures/Wallpapers/wallpaper.jpeg
 
 wget https://raw.githubusercontent.com/calobyte/Ubuntu-Quickstart/refs/heads/main/fonts/jetbrains-fonts.tar -O $DOWNLOAD_PATH/jetbrains-fonts.tar
 sudo tar -xf $DOWNLOAD_PATH/jetbrains-fonts.tar -C /usr/share/fonts/truetype/ --wildcards "*.ttf"
 fc-cache -f
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-yellow-dark'
-gsettings set org.gnome.desktop.interface icon-theme 'Yaru-yellow-dark'
-gsettings set org.gnome.desktop.interface accent-color 'yellow'
-gsettings set org.gnome.Papers.Default annot-color 'yellow'
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-red-dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Yaru-red-dark'
+gsettings set org.gnome.desktop.interface accent-color 'red'
+gsettings set org.gnome.Papers.Default annot-color 'red'
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.interface enable-hot-corners true
 gsettings set org.gnome.desktop.interface monospace-font-name 'Jetbrains Mono 13'
@@ -129,9 +129,9 @@ fi" >> $HOME/.bashrc
 # curl -fsSL https://ollama.com/install.sh | sh
 
 # dock
-# gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-# gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
-# gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
