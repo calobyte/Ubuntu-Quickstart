@@ -136,5 +136,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
+# https://extensions.gnome.org/extension/1634/resource-monitor/
+
 # no notifications on lock screen
 gsettings set org.gnome.desktop.notifications show-in-lock-screen true
