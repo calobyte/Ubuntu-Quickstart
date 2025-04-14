@@ -15,6 +15,7 @@ I want to automate the whole bang-shoot, I have already created [Nubuntu](https:
   - [x] Error lens
   - [x] prettier
 - [x] A SSH key pair
+- [x] Git Config
 - [x] Some additional applications
   - [x] VirtualBox
   - [x] Tilix (a better terminal)
@@ -22,13 +23,12 @@ I want to automate the whole bang-shoot, I have already created [Nubuntu](https:
   - [x] Localsend
   - [x] Bruno (REST Client)
   - [x] Something to sign PDF's with (found xournalapp)
-  - [x] Basic office suite (Probably libre office)
+  - [x] Basic office suite (Probably libre office went for only office)
   - [x] OBS
-  - [x] GIMP
+  - [x] GIMP and Pinta
   - [x] Video editor (kdenlive? or better maybe resolve) (settled for kdenlive)
-  - [x] Ollama (sigh...)
   - [x] Cura for 3D slicing
-  - [x] Remove desktop software (remmina)
+  - [x] Remote desktop software (remmina)
   - [x] Media player (vlc)
 
 There are quite a few applications on this list, and I probably have not exhausted the requirements, however I think this is a great start!
