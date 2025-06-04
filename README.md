@@ -36,3 +36,8 @@ There are quite a few applications on this list, and I probably have not exhaust
 ```bash
 time sudo apt-get install -yq curl && curl -o- https://raw.githubusercontent.com/calobyte/woza/refs/heads/main/24.04.sh | bash
 ```
+
+```bash
+time sudo apt-get install -yq curl && curl -o- https://raw.githubusercontent.com/calobyte/woza/refs/heads/main/25.04.sh | bash
+```
+
