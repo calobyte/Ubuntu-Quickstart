@@ -83,6 +83,7 @@ add_gnome_menu_folders "media" "💽 Media" "'vlc.desktop'"
 
 add_gnome_menu_folders "create" "⚒️ Create" "'io.lmms.LMMS.desktop', 'io.github.revisto.drum-machine.desktop', 'com.ultimaker.cura.desktop', 'com.obsproject.Studio.desktop', 'org.gimp.GIMP.desktop', 'org.kde.kdenlive.desktop', 'org.darktable.Darktable.desktop', 'com.github.PintaProject.Pinta.desktop'"
 
+gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop', 'bitwarden_bitwarden.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.remmina.Remmina.desktop' ]"
 add_gnome_menu_folders "office" "💼 Office" ", 'com.github.xournalpp.xournalpp.desktop', 'org.libreoffice.LibreOffice.desktop', 'org.libreoffice.LibreOffice.base.desktop', 'org.libreoffice.LibreOffice.calc.desktop', 'org.libreoffice.LibreOffice.draw.desktop', 'org.libreoffice.LibreOffice.impress.desktop', 'org.libreoffice.LibreOffice.math.desktop', 'org.libreoffice.LibreOffice.writer.desktop'"
 
 gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'utils', 'media', 'office', 'create' ]"

@@ -2,17 +2,18 @@
 
 DOWNLOAD_PATH=$HOME/Downloads/tmp
 
-snap_installs="bruno cura-slicer kdenlive libreoffice gimp bitwarden dbeaver-ce obs-studio localsend xournalpp darktable pinta godot-4"
+snap_installs="bruno cura-slicer kdenlive libreoffice gimp bitwarden dbeaver-ce obs-studio localsend xournalpp darktable pinta godot-4 joplin-desktop"
 snap_removes="firefox"
-apt_installs="htop aria2 tilix vlc git gnome-software-plugin-snap remmina gnome-shell-extensions"
+apt_installs="htop aria2 virtualbox tilix vlc git flatpak gnome-software-plugin-flatpak gnome-software-plugin-snap remmina gnome-shell-extensions"
 apt_removes="gnome-user-docs yelp gnome-terminal"
+flatpak_installs="io.gitlab.theevilskeleton.Upscaler io.missioncenter.MissionCenter"
 
 read -p "Ready to install additional extenions?" && (
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "blur-my-shell@aunetx" && \
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "batterytimepercentagecompact@sagrland.de" && \
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "batime@martin.zurowietz.de" && \
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Vitals@CoreCoding.com" && \
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Always-Show-Titles-In-Overview@gmail.com"
+gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "blur-my-shell@aunetx" && \
+gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "batterytimepercentagecompact@sagrland.de" && \
+gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "batime@martin.zurowietz.de" && \
+gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Vitals@CoreCoding.com" && \
+gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Always-Show-Titles-In-Overview@gmail.com"
 )
 
 mkdir $DOWNLOAD_PATH
@@ -27,6 +28,11 @@ sudo apt-get remove -yq $apt_removes
 
 sudo snap remove $snap_removes
 sudo snap install $snap_installs
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install --noninteractive -y $flatpak_installs
+sudo flatpak install  --noninteractive -y org.gtk.Gtk3theme.Adwaita-dark
+sudo flatpak override --env=GTK_THEME=Adwaita-dark
 
 # INSTALL: VS CODE
 echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
@@ -59,7 +65,7 @@ sudo apt-get -yq install docker-ce docker-ce-cli containerd.io docker-buildx-plu
 sudo usermod -aG docker $USER
 
 # dock pinned apps
-gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop', 'bitwarden_bitwarden.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.remmina.Remmina.desktop' ]"
+gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop', 'com.bitwarden.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.remmina.Remmina.desktop', 'io.missioncenter.MissionCenter.desktop', 'joplin-desktop_joplin-desktop.desktop' ]"
 
 # menu folders
 add_gnome_menu_folders() {
@@ -75,13 +81,15 @@ add_gnome_menu_folders "system" "🖥️ System" "'org.gnome.Logs.desktop', 'org
 
 add_gnome_menu_folders "accessories" "🗂️ Accessories" "'org.gnome.clocks.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.eog.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Evince', 'org.gnome.Evince.desktop', 'org.gnome.Papers.desktop'"
 
-add_gnome_menu_folders "dev" "💡 Dev" "'code.desktop', 'dbeaver-ce_dbeaver-ce.desktop', 'bruno_bruno.desktop', 'godot-4_godot-4.desktop'"
+add_gnome_menu_folders "dev" "💡 Dev" "'virtualbox.desktop', 'code.desktop', 'dbeaver-ce_dbeaver-ce.desktop', 'bruno_bruno.desktop', 'godot-4_godot-4.desktop'"
 
-add_gnome_menu_folders "utils" "📏 Utils" "'localsend_localsend.desktop', 'com.gexperts.Tilix.desktop', 'org.gnome.Characters.desktop', 'org.gnome.font-viewer.desktop', 'snap-store_snap-store.desktop'"
+add_gnome_menu_folders "utils" "📏 Utils" "'localsend_localsend.desktop', 'com.gexperts.Tilix.desktop', 'org.gnome.Characters.desktop', 'org.gnome.font-viewer.desktop'"
 
 add_gnome_menu_folders "media" "💽 Media" "'vlc.desktop'"
 
-add_gnome_menu_folders "create" "⚒️ Create" "'cura-slicer_cura.desktop', 'obs-studio_obs-studio.desktop', 'gimp_gimp.desktop', 'kdenlive_kdenlive.desktop', 'darktable_darktable.desktop', 'pinta_pinta.desktop'"
+add_gnome_menu_folders "appstores" "🏪 App Stores" "'org.gnome.Software.desktop', 'snap-store_snap-store.desktop'"
+
+add_gnome_menu_folders "create" "⚒️ Create" "'cura-slicer_cura.desktop', 'obs-studio_obs-studio.desktop', 'gimp_gimp.desktop', 'kdenlive_kdenlive.desktop', 'darktable_darktable.desktop', 'pinta_pinta.desktop', 'io.gitlab.theevilskeleton.Upscaler.desktop'"
 
 add_gnome_menu_folders "office" "💼 Office" "'xournalpp_xournalpp.desktop', 'libreoffice_calc.desktop', 'libreoffice_impress.desktop', 'libreoffice_writer.desktop', 'libreoffice_math.desktop', 'libreoffice_draw.desktop', 'libreoffice_libreoffice.desktop', 'libreoffice_base.desktop'"
 
@@ -148,11 +156,3 @@ git config --global user.name "Callum"
 # no notifications on lock screen
 gsettings set org.gnome.desktop.notifications show-in-lock-screen true
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
-
-read -p "Ready to install additional extenions?" && (
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "blur-my-shell@aunetx" && \
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "batterytimepercentagecompact@sagrland.de" && \
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "batime@martin.zurowietz.de" && \
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Vitals@CoreCoding.com" && \
-        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Always-Show-Titles-In-Overview@gmail.com"
-)
