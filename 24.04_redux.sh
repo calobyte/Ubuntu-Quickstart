@@ -7,10 +7,20 @@ snap_removes="firefox"
 apt_installs="htop aria2 tilix vlc git gnome-software-plugin-snap remmina gnome-shell-extensions"
 apt_removes="gnome-user-docs yelp gnome-terminal"
 
+read -p "Ready to install additional extenions?" && (
+        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "blur-my-shell@aunetx" && \
+        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "batterytimepercentagecompact@sagrland.de" && \
+        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "batime@martin.zurowietz.de" && \
+        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Vitals@CoreCoding.com" && \
+        gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Always-Show-Titles-In-Overview@gmail.com"
+)
+
 mkdir $DOWNLOAD_PATH
 
 sudo apt-get update
 sudo apt-get upgrade -yq
+
+sudo ubuntu-drivers --install
 
 sudo apt-get install -yq $apt_installs
 sudo apt-get remove -yq $apt_removes
@@ -61,11 +71,11 @@ add_gnome_menu_folders() {
         gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/$folder_name/ apps "[ $apps ]"
 }
 
-add_gnome_menu_folders "system" "🖥️ System" "'org.gnome.Logs.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Tecla.desktop', 'org.gnome.baobab.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Settings.desktop', 'org.gnome.OnlineAccounts.OAuth2.desktop', 'software-properties-drivers', 'software-properties-gtk', 'update-manager', 'nm-connection-editor', 'gnome-session-properties', 'gnome-language-selector', 'gnome-session-properties.desktop', 'nm-connection-editor.desktop', 'gnome-language-selector.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'software-properties-drivers.desktop', 'htop.desktop', 'desktop-security-center_desktop-security-center.desktop', 'firmware-updater_firmware-updater.desktop', 'org.gnome.Sysprof.desktop'"
+add_gnome_menu_folders "system" "🖥️ System" "'org.gnome.Logs.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Tecla.desktop', 'org.gnome.baobab.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Settings.desktop', 'org.gnome.OnlineAccounts.OAuth2.desktop', 'software-properties-drivers', 'software-properties-gtk', 'update-manager', 'nm-connection-editor', 'gnome-session-properties', 'gnome-language-selector', 'gnome-session-properties.desktop', 'nm-connection-editor.desktop', 'gnome-language-selector.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'software-properties-drivers.desktop', 'htop.desktop', 'desktop-security-center_desktop-security-center.desktop', 'firmware-updater_firmware-updater.desktop', 'org.gnome.Sysprof.desktop', 'org.gnome.Extensions.desktop'"
 
 add_gnome_menu_folders "accessories" "🗂️ Accessories" "'org.gnome.clocks.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.eog.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Evince', 'org.gnome.Evince.desktop', 'org.gnome.Papers.desktop'"
 
-add_gnome_menu_folders "dev" "💡 Dev" "'code.desktop', 'dbeaver-ce_dbeaver-ce.desktop', 'bruno_bruno.desktop'"
+add_gnome_menu_folders "dev" "💡 Dev" "'code.desktop', 'dbeaver-ce_dbeaver-ce.desktop', 'bruno_bruno.desktop', 'godot-4_godot-4.desktop'"
 
 add_gnome_menu_folders "utils" "📏 Utils" "'localsend_localsend.desktop', 'com.gexperts.Tilix.desktop', 'org.gnome.Characters.desktop', 'org.gnome.font-viewer.desktop', 'snap-store_snap-store.desktop'"
 
@@ -73,7 +83,7 @@ add_gnome_menu_folders "media" "💽 Media" "'vlc.desktop'"
 
 add_gnome_menu_folders "create" "⚒️ Create" "'cura-slicer_cura.desktop', 'obs-studio_obs-studio.desktop', 'gimp_gimp.desktop', 'kdenlive_kdenlive.desktop', 'darktable_darktable.desktop', 'pinta_pinta.desktop'"
 
-add_gnome_menu_folders "office" "💼 Office" ", 'xournalpp_xournalpp.desktop'"
+add_gnome_menu_folders "office" "💼 Office" "'xournalpp_xournalpp.desktop', 'libreoffice_calc.desktop', 'libreoffice_impress.desktop', 'libreoffice_writer.desktop', 'libreoffice_math.desktop', 'libreoffice_draw.desktop', 'libreoffice_libreoffice.desktop', 'libreoffice_base.desktop'"
 
 gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'utils', 'media', 'office', 'create' ]"
 
