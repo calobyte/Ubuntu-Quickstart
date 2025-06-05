@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 
 DOWNLOAD_PATH=$HOME/Downloads/tmp
 
