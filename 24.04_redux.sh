@@ -20,7 +20,7 @@ mkdir $DOWNLOAD_PATH
 sudo apt-get update
 sudo apt-get upgrade -yq
 
-sudo ubuntu-drivers --install
+sudo ubuntu-drivers install
 
 sudo apt-get install -yq $apt_installs
 sudo apt-get remove -yq $apt_removes
@@ -64,7 +64,7 @@ sudo apt-get -yq install docker-ce docker-ce-cli containerd.io docker-buildx-plu
 sudo usermod -aG docker $USER
 
 # dock pinned apps
-gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop', 'com.bitwarden.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.remmina.Remmina.desktop', 'io.missioncenter.MissionCenter.desktop', 'joplin-desktop_joplin-desktop.desktop' ]"
+gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop',  .desktop', 'org.gnome.Nautilus.desktop', 'org.remmina.Remmina.desktop', 'io.missioncenter.MissionCenter.desktop', 'joplin-desktop_joplin-desktop.desktop' ]"
 
 # menu folders
 add_gnome_menu_folders() {
