@@ -2,10 +2,9 @@
 
 DOWNLOAD_PATH=$HOME/Downloads/tmp
 
-snap_installs="bruno cura-slicer kdenlive onlyoffice-desktopeditors gimp bitwarden dbeaver-ce obs-studio localsend xournalpp darktable pinta"
-snap_installs_classic="bruno cura-slicer kdenlive onlyoffice-desktopeditors gimp bitwarden dbeaver-ce obs-studio localsend xournalpp darktable pinta"
+snap_installs="bruno cura-slicer kdenlive libreoffice gimp bitwarden dbeaver-ce obs-studio localsend xournalpp darktable pinta godot-4"
 snap_removes="firefox"
-apt_installs="htop aria2 virtualbox tilix vlc git flatpak gnome-software-plugin-flatpak gnome-software-plugin-snap remmina gnome-shell-extensions"
+apt_installs="htop aria2 tilix vlc git gnome-software-plugin-snap remmina gnome-shell-extensions"
 apt_removes="gnome-user-docs yelp gnome-terminal"
 
 mkdir $DOWNLOAD_PATH
@@ -18,14 +17,6 @@ sudo apt-get remove -yq $apt_removes
 
 sudo snap remove $snap_removes
 sudo snap install $snap_installs
-
-# add flatpaks
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-flatpak install --noninteractive -y $flatpak_installs
-
-sudo flatpak install  --noninteractive -y org.gtk.Gtk3theme.Adwaita-dark
-sudo flatpak override --env=GTK_THEME=Adwaita-dark
 
 # INSTALL: VS CODE
 echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
@@ -41,7 +32,6 @@ sudo apt-get install -yq code
 # INSTALL: Chrome
 wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O $DOWNLOAD_PATH/chrome.deb
 sudo apt-get install -yq $DOWNLOAD_PATH/chrome.deb
-
 
 # INSTALL: docker
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -59,7 +49,7 @@ sudo apt-get -yq install docker-ce docker-ce-cli containerd.io docker-buildx-plu
 sudo usermod -aG docker $USER
 
 # dock pinned apps
-gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop', 'com.bitwarden.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.remmina.Remmina.desktop', 'io.missioncenter.MissionCenter.desktop', 'net.cozic.joplin_desktop.desktop' ]"
+gsettings set org.gnome.shell favorite-apps "[ 'google-chrome.desktop', 'bitwarden_bitwarden.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.remmina.Remmina.desktop' ]"
 
 # menu folders
 add_gnome_menu_folders() {
@@ -71,19 +61,19 @@ add_gnome_menu_folders() {
         gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/$folder_name/ apps "[ $apps ]"
 }
 
-add_gnome_menu_folders "system" "🖥️ System" "'org.gnome.Logs.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Tecla.desktop', 'org.gnome.baobab.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Settings.desktop', 'org.gnome.OnlineAccounts.OAuth2.desktop', 'software-properties-drivers', 'software-properties-gtk', 'update-manager', 'nm-connection-editor', 'gnome-session-properties', 'gnome-language-selector', 'gnome-session-properties.desktop', 'nm-connection-editor.desktop', 'gnome-language-selector.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'software-properties-drivers.desktop', 'htop.desktop', 'desktop-security-center_desktop-security-center.desktop', 'firmware-updater_firmware-updater.desktop', 'org.gnome.Sysprof.desktop', 'org.gnome.Extensions.desktop'"
+add_gnome_menu_folders "system" "🖥️ System" "'org.gnome.Logs.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Tecla.desktop', 'org.gnome.baobab.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Settings.desktop', 'org.gnome.OnlineAccounts.OAuth2.desktop', 'software-properties-drivers', 'software-properties-gtk', 'update-manager', 'nm-connection-editor', 'gnome-session-properties', 'gnome-language-selector', 'gnome-session-properties.desktop', 'nm-connection-editor.desktop', 'gnome-language-selector.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'software-properties-drivers.desktop', 'htop.desktop', 'desktop-security-center_desktop-security-center.desktop', 'firmware-updater_firmware-updater.desktop', 'org.gnome.Sysprof.desktop'"
 
 add_gnome_menu_folders "accessories" "🗂️ Accessories" "'org.gnome.clocks.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.eog.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Evince', 'org.gnome.Evince.desktop', 'org.gnome.Papers.desktop'"
 
-add_gnome_menu_folders "dev" "💡 Dev" "'virtualbox.desktop', 'com.google.AndroidStudio.desktop', 'code.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'com.usebruno.Bruno.desktop', 'org.godotengine.Godot.desktop'"
+add_gnome_menu_folders "dev" "💡 Dev" "'code.desktop', 'dbeaver-ce_dbeaver-ce.desktop', 'bruno_bruno.desktop'"
 
-add_gnome_menu_folders "utils" "📏 Utils" "'io.github.nozwock.Packet.desktop', 'com.vixalien.sticky.desktop', 'localsend_localsend.desktop', 'com.gexperts.Tilix.desktop', 'org.gnome.Characters.desktop', 'org.gnome.font-viewer.desktop', 'snap-store_snap-store.desktop'"
+add_gnome_menu_folders "utils" "📏 Utils" "'localsend_localsend.desktop', 'com.gexperts.Tilix.desktop', 'org.gnome.Characters.desktop', 'org.gnome.font-viewer.desktop', 'snap-store_snap-store.desktop'"
 
 add_gnome_menu_folders "media" "💽 Media" "'vlc.desktop'"
 
-add_gnome_menu_folders "create" "⚒️ Create" "'io.lmms.LMMS.desktop', 'io.github.revisto.drum-machine.desktop', 'com.ultimaker.cura.desktop', 'com.obsproject.Studio.desktop', 'org.gimp.GIMP.desktop', 'org.kde.kdenlive.desktop', 'org.darktable.Darktable.desktop', 'com.github.PintaProject.Pinta.desktop'"
+add_gnome_menu_folders "create" "⚒️ Create" "'cura-slicer_cura.desktop', 'obs-studio_obs-studio.desktop', 'gimp_gimp.desktop', 'kdenlive_kdenlive.desktop', 'darktable_darktable.desktop', 'pinta_pinta.desktop'"
 
-add_gnome_menu_folders "office" "💼 Office" ", 'com.github.xournalpp.xournalpp.desktop', 'org.libreoffice.LibreOffice.desktop', 'org.libreoffice.LibreOffice.base.desktop', 'org.libreoffice.LibreOffice.calc.desktop', 'org.libreoffice.LibreOffice.draw.desktop', 'org.libreoffice.LibreOffice.impress.desktop', 'org.libreoffice.LibreOffice.math.desktop', 'org.libreoffice.LibreOffice.writer.desktop'"
+add_gnome_menu_folders "office" "💼 Office" ", 'xournalpp_xournalpp.desktop'"
 
 gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'utils', 'media', 'office', 'create' ]"
 
@@ -142,9 +132,6 @@ gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
-
-
-
 git config --global user.email "mrcallumfleming@gmail.com"
 git config --global user.name "Callum"
 
@@ -159,4 +146,3 @@ read -p "Ready to install additional extenions?" && (
         gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Vitals@CoreCoding.com" && \
         gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "Always-Show-Titles-In-Overview@gmail.com"
 )
-
