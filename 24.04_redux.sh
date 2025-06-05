@@ -29,8 +29,8 @@ sudo snap remove $snap_removes
 sudo snap install $snap_installs
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install --noninteractive -y $flatpak_installs
-sudo flatpak install  --noninteractive -y org.gtk.Gtk3theme.Adwaita-dark
+flatpak install --noninteractive -y flathub $flatpak_installs
+flatpak install --noninteractive -y org.gtk.Gtk3theme.Adwaita-dark
 sudo flatpak override --env=GTK_THEME=Adwaita-dark
 
 # INSTALL: VS CODE
@@ -86,13 +86,15 @@ add_gnome_menu_folders "utils" "📏 Utils" "'localsend_localsend.desktop', 'com
 
 add_gnome_menu_folders "media" "💽 Media" "'vlc.desktop'"
 
+add_gnome_menu_folders "games" "🎮 Games" "'steam_steam.desktop'"
+
 add_gnome_menu_folders "appstores" "🏪 App Stores" "'org.gnome.Software.desktop', 'snap-store_snap-store.desktop'"
 
 add_gnome_menu_folders "create" "⚒️ Create" "'cura-slicer_cura.desktop', 'obs-studio_obs-studio.desktop', 'gimp_gimp.desktop', 'kdenlive_kdenlive.desktop', 'darktable_darktable.desktop', 'pinta_pinta.desktop', 'io.gitlab.theevilskeleton.Upscaler.desktop'"
 
 add_gnome_menu_folders "office" "💼 Office" "'xournalpp_xournalpp.desktop', 'libreoffice_calc.desktop', 'libreoffice_impress.desktop', 'libreoffice_writer.desktop', 'libreoffice_math.desktop', 'libreoffice_draw.desktop', 'libreoffice_libreoffice.desktop', 'libreoffice_base.desktop'"
 
-gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'utils', 'media', 'office', 'create' ]"
+gsettings set org.gnome.desktop.app-folders folder-children "[ 'accessories', 'system', 'dev', 'utils', 'media', 'office', 'create', 'appstores', 'games' ]"
 
 # theme and shell
 mkdir -p $HOME/Pictures/Wallpapers

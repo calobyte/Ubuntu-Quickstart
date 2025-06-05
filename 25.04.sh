@@ -22,9 +22,9 @@ sudo snap install $snap_installs
 # add flatpaks
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak install --noninteractive -y $flatpak_installs
+flatpak install flathub--noninteractive -y flathub $flatpak_installs
 
-sudo flatpak install  --noninteractive -y org.gtk.Gtk3theme.Adwaita-dark
+flatpak install --noninteractive -y org.gtk.Gtk3theme.Adwaita-dark
 sudo flatpak override --env=GTK_THEME=Adwaita-dark
 
 # INSTALL: VS CODE
